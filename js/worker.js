@@ -59,6 +59,14 @@ function loadUsersTags(username){
 	});
 }
 
+function logOut() {
+	firebase.auth().signOut().then(function() {
+		console.log("Logout successful")
+	}, function() {
+		console.log("Logout failed")
+	})
+}
+
 document.getElementById("taginput")
     .addEventListener("keyup", function(event) {
     event.preventDefault();

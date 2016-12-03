@@ -7,20 +7,17 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
-
   <body>
     <div class="container">
-
       <div class="row text-center">
         <h1 id="greeting">Let's find you a job today.</h1>
       </div>
-
       <div class="row">
         <div class="input-group">
-          <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
+          <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?" autofocus>
           <span class="input-group-btn">
-              <button class="btn btn-default" type="button" onclick="addWorkerSkill()">Add skill</button>
-            </span>
+            <button class="btn btn-default" id="tagbutton" type="button" onclick="addWorkerSkill()">Add skill</button>
+          </span>
         </div>
       </div>
 
@@ -32,12 +29,10 @@
           <button type="button" class="btn btn-default">painting</button>
         </p>
       </div>
-
       <div class="row" id="currentTags">
         <h2 class="faded-grey-text">Your current skills!</h2>
         <p></p>
       </div>
-
     </div>
 
     <!-- Loading JS Plugins-->

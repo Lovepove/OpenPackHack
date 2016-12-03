@@ -2,7 +2,7 @@ taginput = document.getElementById('taginput');
 matchcount = document.getElementById('matchcount');
 emails = document.getElementById('emails');
 function updateMatching(){
-	tags = taginput.value.split(',');
+	tags = taginput.value.split(',').map((s)=>s.trim());
 	fireRef.child('/workers/').once('value').then(function(snapshot){
 		var all = snapshot.val();
 		matches = Object.keys(all).filter(function(x){

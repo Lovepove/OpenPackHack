@@ -7,3 +7,4 @@ var config = {
 };
 firebase.initializeApp(config);
 var fireRef = firebase.database().ref();
+var homepage = "index.html";

@@ -148,9 +148,9 @@ body {
   }
 
   h1 {
-   -webkit-text-stroke: 0.3px black;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
    font-weight: 900;
-   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+   color: #6d6d6d
 }
 
 h2 {

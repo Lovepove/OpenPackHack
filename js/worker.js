@@ -73,6 +73,7 @@ function loadUsersTags(username){
 function logOut() {
 	firebase.auth().signOut().then(function() {
 		console.log("Logout successful")
+		document.location = homepage;
 	}, function() {
 		console.log("Logout failed")
 	})

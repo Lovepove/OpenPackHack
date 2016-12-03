@@ -1,5 +1,6 @@
 taginput = document.getElementById('taginput');
 matchcount = document.getElementById('matchcount');
+emails = document.getElementById('emails');
 function updateMatching(){
 	tags = taginput.value.split(',').map((s)=>s.trim());
 	fireRef.child('/workers/').once('value').then(function(snapshot){
@@ -10,6 +11,8 @@ function updateMatching(){
 				return workertags.includes(searchtag);
 			});
 		});
-		matchcount.innerHTML = matches.length + " matches.";
+		var parsemail = matches.join(";");
+		matchcount.innerHTML = "Antal matchade: " + matches.length;
+		emails.innerHTML = "<a href='mailto:" + parsemail + "?subject=We want you!' class=\"btn btn-lg btn-primary\"><font size=\"5\">Send mail</font></a>";
 	});
 }

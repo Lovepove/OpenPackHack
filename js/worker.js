@@ -1,6 +1,8 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 var username = "";
 var currTagsParagraph = document.getElementById("currentTags").getElementsByTagName("p")[0];
+var taginput = document.getElementById("taginput");
+var fireRef = firebase.database().ref();
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
@@ -15,17 +17,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 			}
 		});
 		loadUsersTags(username);
-		// User is signed in.
+		fireRef.child("workers/" + username + "/email").set(user.email);
 	} else {
 		console.log("user not signed in");
 		firebase.auth().signInWithRedirect(provider);
-		// No user is signed in.
 		document.location = '/';
 	}
 });
 
-var taginput = document.getElementById("taginput");
-var fireRef = firebase.database().ref();
 
 function addWorkerSkill(){
 	//add user to firebase
@@ -54,6 +53,7 @@ function loadUsersTags(username){
 function logOut() {
 	firebase.auth().signOut().then(function() {
 		console.log("Logout successful")
+		document.location = homepage;
 	}, function() {
 		console.log("Logout failed")
 	})

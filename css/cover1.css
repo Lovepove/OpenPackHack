@@ -60,7 +60,6 @@ body {
   padding: 30px;
 }
 
-
 /*
  * Header
  */
@@ -168,10 +167,11 @@ h2 {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 402px) {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 700px;
+
+    width: 30%;
   }
 }

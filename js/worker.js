@@ -23,18 +23,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 var taginput = document.getElementById("taginput");
 var fireRef = firebase.database().ref();
 
-function addWorkerSkill() {
-	//fireRef.child("workers/" + username + "/tags").push({});
-}
-
-function addWorker(){
+function addWorkerSkill(){
 	//add user to firebase
-	fireRef.child("workers").push({tags:taginput.value.split(',')});
+	taginput.value.split(',').forEach(function(x){
+		fireRef.child("workers/" + username + "/tags").push(x);
+	});
 	alert("good luck");
 	taginput.value = "";
 }
 
-function addWorkerTag(tag) {
+function addWorkerTagToPage(tag) {
 	var btn = document.createElement("button");
 	btn.type = "button"
 	btn.className = "btn btn-default";
@@ -49,16 +47,18 @@ function loadUsersTags(username){
 	var tagsRef = fireRef.child('workers/' + username + "/tags");
 	tagsRef.once('value', function(snapshot){
 		snapshot.forEach(function(childSnapshot){
-			addWorkerTag(childSnapshot.val());
+			addWorkerTagToPage(childSnapshot.val());
 		});
 	});
-	tagsRef.on('child_added', function(snapshot){
-		var event = snapshot.val();
-		console.log("event: " + event);
-		console.log("event.key: " + event.key);
-		console.log("event.title: " + event.title);
-		console.log("event.content: " + event.content);
-		addWorkerTag("$$$")
+	tagsRef.on('value', function(snapshot){
+		for (s in snapshot){
+			var event = snapshot.val();
+			console.log("event: " + event);
+			console.log("event.key: " + event.key);
+			console.log("event.title: " + event.title);
+			console.log("event.content: " + event.content);
+			addWorkerTagToPage("$$$");
+		}
 	});
 }
 

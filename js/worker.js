@@ -46,19 +46,29 @@ function loadUsersTags(username){
 
 	var tagsRef = fireRef.child('workers/' + username + "/tags");
 	tagsRef.once('value', function(snapshot){
-		snapshot.forEach(function(childSnapshot){
-			addWorkerTagToPage(childSnapshot.val());
-		});
+		addWorkerTagToPage(snapshot.val());
+//		snapshot.forEach(function(childSnapshot){
+//			addWorkerTagToPage(childSnapshot.val());
+//		});
 	});
 	tagsRef.on('value', function(snapshot){
-		for (s in snapshot){
-			var event = snapshot.val();
-			console.log("event: " + event);
-			console.log("event.key: " + event.key);
-			console.log("event.title: " + event.title);
-			console.log("event.content: " + event.content);
-			addWorkerTagToPage("$$$");
-		}
+		console.log("value updated, snapshot: " + snapshot);
+		// snapshot.forEach(function(childSnapshot){
+		// 	addWorkerTagToPage(childSnapshot.val());i
+		// 	console.log("childSnapshot.val: " + childSnapshot.val);
+		// });
+		snapshot.forEach(function(childsnap){
+			addWorkerTagToPage(childsnap.val());
+		});
+		var event = snapshot.val();
+		// console.log("event: " + event);
+		// console.log("event.key: " + event.key);
+		// console.log("event.title: " + event.title);
+		// console.log("event.content: " + event.content);
+		addWorkerTagToPage("$$$");
+	});
+	tagsRef.limitToLast(1).on('child_added', function(snapshot){
+		console.log(snapshot.name(), snapshot.val());
 	});
 }
 

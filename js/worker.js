@@ -1,6 +1,8 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 var username = "";
 var currTagsParagraph = document.getElementById("currentTags").getElementsByTagName("p")[0];
+var taginput = document.getElementById("taginput");
+var fireRef = firebase.database().ref();
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
@@ -8,6 +10,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     	console.log("UID: " + username);
 		var header = document.getElementById("greeting");
 		header.innerHTML = "Hello, " + user.displayName + ". Let's find you a job today.";
+		fireRef.child("workers/" + username + "/email").set(user.email);
     // User is signed in.
 	} else {
 		console.log("user not signed in");
@@ -17,8 +20,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-var taginput = document.getElementById("taginput");
-var fireRef = firebase.database().ref();
 
 function addWorkerSkill(){
 	//add user to firebase

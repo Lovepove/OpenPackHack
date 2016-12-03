@@ -32,7 +32,7 @@ body {
 body {
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 10px rgba(0,0,0,.5);
+  
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -113,7 +113,7 @@ body {
   padding: 0 20px;
 }
 .cover .btn-lg {
-  padding: 100px 60px;
+  padding: 70px 20px;
   font-weight: bold;
 }
 
@@ -146,6 +146,17 @@ body {
   .site-wrapper-inner {
     vertical-align: middle;
   }
+
+  h1 {
+   -webkit-text-stroke: 0.3px black;
+   font-weight: 900;
+   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+h2 {
+   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  font-weight: bold;
+}
   /* Handle the widths */
   .masthead,
   .mastfoot,

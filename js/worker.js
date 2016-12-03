@@ -22,7 +22,7 @@ var fireRef = firebase.database().ref();
 
 function addWorkerSkill(){
 	//add user to firebase
-	taginput.value.split(',').forEach(function(x){
+	taginput.value.split(',').map((s)=>s.trim()).forEach(function(x){
 		fireRef.child("workers/" + username + "/tags").push(x);
 	});
 	alert("good luck");

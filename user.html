@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
+
   <body>
-    <input placeholder="hi" type="textfield" id="taginput" />
-	<button onclick="addSeeker()">fish for jobs</button>
+    <div class="container">
+      <div class="input-group">
+        <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" onclick="addWorker()">Search</button>
+          </span>
+      </div>
+    </div>
+
+    <!-- Loading JS Plugins-->
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script>
       var config = {
@@ -17,5 +30,9 @@
       firebase.initializeApp(config);
     </script>
     <script src="user.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

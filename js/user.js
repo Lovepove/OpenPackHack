@@ -23,3 +23,22 @@ function addWorker(){
 	alert("good luck");
 	taginput.value = "";
 }
+
+function loadUsersTags(username){
+	var currTagsParagraph = document.getElementById("currentTags").getElementsByTagName("p")[0];
+
+	var tags = fireRef.child('workers/' + username + "/tags");
+	tags.once('value', function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			var tagData = childSnapshot.val();
+			var btn = document.createElement("button");
+			btn.type = "button"
+			btn.className = "btn btn-default";
+			btn.innerText = tagData;
+			currTagsParagraph.appendChild(btn);
+		});
+	});
+}
+
+var defUser = "-KY459HQWUPqLRU6Soim";
+loadUsersTags(defUser);

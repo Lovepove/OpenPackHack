@@ -1,4 +1,7 @@
-function matchingWorkers(tags){
+taginput = document.getElementById('taginput');
+matchcount = document.getElementById('matchcount');
+function updateMatching(){
+	tags = taginput.value.split(',');
 	fireRef.child('/workers/').once('value').then(function(snapshot){
 		var all = snapshot.val();
 		matches = Object.keys(all).filter(function(x){
@@ -7,6 +10,6 @@ function matchingWorkers(tags){
 				return workertags.includes(searchtag);
 			});
 		});
-		console.log(matches);
+		matchcount.innerHTML = matches.length + " matches.";
 	});
 }

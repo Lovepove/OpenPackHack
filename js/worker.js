@@ -2,7 +2,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
 var username = "";
 var currTagsParagraph = document.getElementById("currentTags").getElementsByTagName("p")[0];
 
-
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
     	username = user.uid;
@@ -17,8 +16,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     // No user is signed in.
   }
 });
-
-
 
 var taginput = document.getElementById("taginput");
 var fireRef = firebase.database().ref();
@@ -61,5 +58,13 @@ function loadUsersTags(username){
 		}
 	});
 }
+
+document.getElementById("taginput")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("tagbutton").click();
+    }
+});
 
 loadUsersTags(username);

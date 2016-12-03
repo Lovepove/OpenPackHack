@@ -5,34 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
     <div class="container">
-      <div class="input-group">
-        <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" onclick="addWorker()">Search</button>
-          </span>
+
+      <div class="row text-center">
+        <h1>Hello [username]. Let's find you a job today.</h1>
       </div>
+
+      <div class="row">
+        <div class="input-group">
+          <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button" onclick="addWorker()">Add skill</button>
+            </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <p>
+          <span class="faded-grey-text">Related tags:</span>
+          <button type="button" class="btn btn-default">going to the john</button>
+          <button type="button" class="btn btn-default">cycling</button>
+          <button type="button" class="btn btn-default">painting</button>
+        </p>
+      </div>
+
+      <div class="row" id="currentTags">
+        <h2 class="faded-grey-text">Your current skills!</h2>
+        <p>
+          <button type="button" class="btn btn-default">php</button>
+          <button type="button" class="btn btn-default">java</button>
+          <button type="button" class="btn btn-default">pokemon</button>
+        </p>
+      </div>
+
     </div>
 
     <!-- Loading JS Plugins-->
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
-    <script>
-      var config = {
-        apiKey: "AIzaSyB9ApJFEXaHkdxy2jjC8D43w9RHtw-fdWA",
-        authDomain: "openpackhack.firebaseapp.com",
-        databaseURL: "https://openpackhack.firebaseio.com",
-        storageBucket: "openpackhack.appspot.com",
-        messagingSenderId: "399670410873"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <script src="app.js"></script>
+	  <script src="js/common.js"></script>
+    <script src="js/user.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
   </body>
 </html>

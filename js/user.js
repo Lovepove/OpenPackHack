@@ -1,8 +1,8 @@
 var taginput = document.getElementById("taginput");
 var fireRef = firebase.database().ref();
-function addSeeker(){
+function addWorker(){
 	//add user to firebase
-	fireRef.child("users").push({tags:taginput.value.split(',')});
-	alert("user added");
+	fireRef.child("workers").push({tags:taginput.value.split(',')});
+	alert("good luck");
 	taginput.value = "";
 }

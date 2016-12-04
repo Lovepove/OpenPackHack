@@ -18,3 +18,11 @@ function updateMatching(){
 		emails.innerHTML = "<a href='mailto:" + parsemail + "?subject=We want you!' class=\"btn btn-lg btn-primary\"><font size=\"5\">Send mail</font></a>";
 	});
 }
+document.getElementById("taginput").addEventListener("keyup", function(event) {
+	console.log("detected key");
+	event.preventDefault();
+	if (event.keyCode == 13) {
+		console.log("detected enter");
+		updateMatching();
+	}
+});

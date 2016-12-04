@@ -33,19 +33,35 @@ function addWorkerSkill(){
 	taginput.value = "";
 }
 
+function removeWorkerSkill(tag) {
+	console.log("rem: " + tag);
+	fireRef.child("workers/" + username + "/tags/").once('value').then(function(snap){
+		snap.forEach(function(t){
+			if(t.val() === tag){
+				t.ref.remove();
+			}
+		});
+	});
+}
+
 function addWorkerTagToPage(tag) {
 	var btn = document.createElement("button");
 	btn.type = "button"
 	btn.className = "btn btn-primary";
+	btn.setAttribute("id",tag + "_tag");
+	btn.setAttribute("title","click to delete");
+	btn.setAttribute("onclick","removeWorkerSkill('" + tag + "')");
 	btn.innerText = tag;
 	currTagsParagraph.appendChild(btn);
-
 }
 
 function loadUsersTags(username){
 	var tagsRef = fireRef.child('workers/' + username + "/tags");
 	tagsRef.on('child_added', function(snapshot,prevChildKey){
 		addWorkerTagToPage(snapshot.val());
+	});
+	tagsRef.on('child_removed', function(snapshot,prevChildKey){
+		document.getElementById(snapshot.val() + "_tag").remove();
 	});
 }
 

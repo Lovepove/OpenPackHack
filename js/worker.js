@@ -21,7 +21,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 	} else {
 		console.log("user not signed in");
 		firebase.auth().signInWithRedirect(provider);
-		document.location = '/';
 	}
 });
 

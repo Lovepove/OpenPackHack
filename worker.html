@@ -9,48 +9,45 @@
         <!-- Custom styles for this template -->
     <link href="css/cover1.css" rel="stylesheet">
   </head>
-  <style>
-
-</style>
   <body>
-     <div class="site-wrapper">
-
+    <div class="site-wrapper">
       <div class="site-wrapper-inner">
-    <div class="cover-container">
+        <div class="cover-container">
 
-      <div class="row text-center">
-      <a href="/index.html"><img src="lilogo.png" border="0" /></a>
+          <div class="row text-center">
+            <a href="/index.html"><img src="lilogo.png" border="0" /></a>
 
-      <img src="help.png" onclick=logOut() border="0" /><a href="/help.html"><img src="logout.png" border="0" /></a>
-        <h1 id="greeting">Let's find you a job today.</h1>
-      </div>
+            <img src="help.png" onclick=logOut() border="0" /><a href="/help.html"><img src="logout.png" border="0" /></a>
+              <h1 id="greeting">Let's find you a job today.</h1>
+          </div>
 
-      <div class="row">
-        <div class="input-group">
-          <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
-          <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" onclick="addWorker()">Add skill</button>
+          <div class="row">
+            <div class="input-group">
+              <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What are your skills?">
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button" onclick="addWorkerSkill()">Add skill</button>
 
-            </span>
+                </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <p>
+              <span class="faded-grey-text">Related tags:</span>
+              <button type="button" class="btn btn-danger">java</button>
+              <button type="button" class="btn btn-danger">cycling</button>
+              <button type="button" class="btn btn-danger">painting</button>
+            </p>
+          </div>
+
+          <div class="row" id="currentTags">
+            <h2 class="faded-grey-text">Your current skills!</h2>
+            <p></p>
+          </div>
+
         </div>
       </div>
-
-      <div class="row">
-        <p>
-          <span class="faded-grey-text">Related tags:</span>
-          <button type="button" class="btn btn-danger">java</button>
-          <button type="button" class="btn btn-danger">cycling</button>
-          <button type="button" class="btn btn-danger">painting</button>
-        </p>
-      </div>
-
-      <div class="row" id="currentTags">
-        <h2 class="faded-grey-text">Your current skills!</h2>
-        <p></p>
-      </div>
-</div>
     </div>
-</div>
     <!-- Loading JS Plugins-->
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 	  <script src="js/common.js"></script>

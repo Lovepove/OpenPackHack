@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template -->
+    <link href="css/cover1.css" rel="stylesheet">
   </head>
   <body>
-    <input placeholder="search for tags" type="textfield" id="taginput" />
-	<button onclick="updateMatching()">blurg</button>
-  <!--This should only show when there has been a match,  list of emails should also be a parsed string of emails commadelimited-->  
-	<p id="matchcount"></p>
-  <p id="emails"></p>
+
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="row text-center">
+            <a href="/index.html"><img src="lilogo.png" border="0" /></a>
+
+            <img src="help.png" onclick=logOut() border="0" /><a href="/help.html"><img src="logout.png" border="0" /></a>
+              <h1 id="greeting">Let's find some employees today.</h1>
+          </div>
+
+          <div class="row">
+            <div class="input-group">
+              <input class="form-control" type="textfield" name="taginput" id="taginput" placeholder="What skills are you looking for?">
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button" onclick="updateMatching()">Search</button>
+
+                </span>
+            </div>
+          </div>
+
+          <div class="row">
+          	<p id="matchcount"></p>
+            <p id="emails"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  <!--This should only show when there has been a match,  list of emails should also be a parsed string of emails commadelimited-->
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script src="js/common.js"></script>
     <script src="js/company.js"></script>

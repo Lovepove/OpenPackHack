@@ -11,8 +11,10 @@ function updateMatching(){
 				return workertags.includes(searchtag);
 			});
 		});
-		var parsemail = matches.join(";");
-		matchcount.innerHTML = "Antal matchade: " + matches.length;
+		var parsemail = matches.map(function(x){
+			return all[x].email;
+		}).join(";");
+		matchcount.innerHTML = matches.length + " people have all the skills your searched for.";
 		emails.innerHTML = "<a href='mailto:" + parsemail + "?subject=We want you!' class=\"btn btn-lg btn-primary\"><font size=\"5\">Send mail</font></a>";
 	});
 }

@@ -49,6 +49,7 @@ function addWorkerTagToPage(tag) {
 	btn.type = "button"
 	btn.className = "btn btn-primary";
 	btn.setAttribute("id",tag + "_tag");
+	btn.setAttribute("title","click to delete");
 	btn.setAttribute("onclick","removeWorkerSkill('" + tag + "')");
 	btn.innerText = tag;
 	currTagsParagraph.appendChild(btn);

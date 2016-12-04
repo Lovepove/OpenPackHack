@@ -36,7 +36,7 @@ function addWorkerSkill(){
 function addWorkerTagToPage(tag) {
 	var btn = document.createElement("button");
 	btn.type = "button"
-	btn.className = "btn btn-default";
+	btn.className = "btn btn-primary";
 	btn.innerText = tag;
 	currTagsParagraph.appendChild(btn);
 
